@@ -2,7 +2,6 @@
 
 int		ft_printf(const char *s, ...)
 {
-	s++;
-	ft_putstr_fd("lets go", 1);
+	ft_putstr_fd((char*)s, 1);
 	return (0);
 }
