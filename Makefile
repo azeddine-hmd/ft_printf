@@ -2,6 +2,8 @@ NAME = libftprintf.a
 
 CC = gcc -Wall -Wextra -Werror
 
+MAKE = cd libft && make
+
 MCF = ft_printf.c
 
 MOF = ft_printf.o
@@ -13,13 +15,16 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(MCF)
+	$(MAKE) all
+	$(CC) -c $(MCF)
 	$(ARCHIVE) $(NAME) $(MOF)
 
 clean:
+	$(MAKE) clean
 	$(RM) $(MOF)
 
 fclean: clean
+	$(MAKE) fclean
 	$(RM) $(NAME)
 
 re: fclean all
