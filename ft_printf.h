@@ -3,6 +3,15 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 
-int		ft_printf(const char *, ...);
+typedef struct	s_list
+{
+	char			*str;
+	char			*operator;
+	char			*flags;
+	int				arg_index;
+	struct s_list	next;
+}				t_list;
+
+	int		ft_printf(const char *s, ...);
 
 #endif

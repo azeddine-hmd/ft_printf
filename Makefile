@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 CC = gcc -Wall -Wextra -Werror
 
-MAKE = cd libft && make
+MAKE = make -C libft
 
 MCF = ft_printf.c
 

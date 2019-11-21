@@ -1,7 +1,7 @@
-#include "ft_printf.h"
+#include "ft_printf.c"
 
 int		main(void)
 {
-	ft_printf("welcome");
+	ft_printf("this feels so good");
 	return (0);
 }

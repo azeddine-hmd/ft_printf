@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   data_inseration.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/21 20:28:09 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/21 20:29:22 by ahamdaou         ###   ########.fr       */
+/*   Created: 2019/11/21 20:07:48 by ahamdaou          #+#    #+#             */
+/*   Updated: 2019/11/21 22:16:46 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *s, ...)
+t_list		newData(char *str, char *operator, char *flags, int arg_index)
 {
-	t_list	*head;
-	int		i;
+	t_list		*data;
 
-	i = -1;
-	while (s[++i])
-		if (s[i] == '%' && s[i + 1] != '%')
-			data_habdler(head, s, i);
-	//TODO: part2: modify nodes data
-	return (0);
+	if (!((t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	data->str = str;
+	data->operator = operator;
+	data->flags = flags;
+	data->arg_index = arg_index;
+	data->next = NULL;
+	return (data);
+}
+
+int			data_handler(char *s, int start)
+{
+	
 }
