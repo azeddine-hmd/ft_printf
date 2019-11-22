@@ -6,13 +6,13 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:07:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/21 22:16:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/22 23:08:41 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_list		newData(char *str, char *operator, char *flags, int arg_index)
+t_list		newData(char *string, char *specifier, char *flags, int arg_index)
 {
 	t_list		*data;
 
@@ -26,7 +26,23 @@ t_list		newData(char *str, char *operator, char *flags, int arg_index)
 	return (data);
 }
 
-int			data_handler(char *s, int start)
+char	*get_operator(char *s, int start)
 {
 	
+}
+
+int			data_handler(t_list *head, char *s, int start)
+{
+	int i;
+
+	i = -1;
+	while (s[++i])
+	{
+		if (s[i] == '%')
+			ft_lstadd_back(&head,
+					newData(NULL,
+					get_operator(s, i + 1),
+					get_flags));	
+
+	}
 }
