@@ -4,6 +4,6 @@
 int		main(void)
 {
 	//ft_printf("this feels so good");
-	printf("asdadf %s", 23);
+	printf("asdadf%%rrr");
 	return (0);
 }
