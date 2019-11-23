@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:07:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/23 08:20:57 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/23 11:07:13 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 ** This function create a new node and initialize it.
 ** ------------------------------------------------------
 ** Return Values:
-**	t_List*: address of the new node that have been created.
-**  NULL: if an error occured (during allocation).
+**	t_lilst*: address of the new node that have been created.
+**  NULL: if an error occurred (during allocation).
 */
 
-t_list		*new_data(char *string, char specifier, char *flags)
+t_lilst		*new_data(char *string, char specifier, char *flags)
 {
-	t_list		*data;
+	t_lilst		*data;
 
-	if (!((t_list*)malloc(sizeof(t_list))))
+	if (!((t_lilst*)malloc(sizeof(t_lilst))))
 		return (NULL);
 	data->str = str;
 	data->specifier = specifier;
@@ -41,7 +41,7 @@ t_list		*new_data(char *string, char specifier, char *flags)
 ** ------------------------------------------------------
 ** Return Values:
 **	> 0: index of specifier in string s.
-**  -1: if an error occured (during allocation).
+**  -1: if an error occurred (during allocation).
 **	  0: if no specifier found in string s.
 */
 
@@ -71,7 +71,7 @@ int			get_specifier_index(char *s, int start)
 /*
 ** Return Values:
 **  char: specifier character.
-**    -1: if an error occured (during allocation).
+**    -1: if an error occurred (during allocation).
 */
 
 char		get_specifier(char s, int start)
@@ -90,7 +90,7 @@ char		get_specifier(char s, int start)
 ** and handles errors cases.
 ** Return Values:
 **  1: if everything went normal.
-** -1: if an error occured (during allocation).
+** -1: if an error occurred (during allocation).
 */
 
 int			get_flags(char *s, int start, char **adr_flags)
@@ -109,31 +109,5 @@ int			get_flags(char *s, int start, char **adr_flags)
 	}
 	if (!(*adr_flags = ft_substr(s, start, len)))
 		return (-1);
-	return (1);
-}
-
-/*
-** Description:
-** - This function insert nodes and data in the "head".
-** Return Values:
-**  1: if everything went normal.
-** -1: if an error occured (during allocation).
-*/
-
-int			data_handler(t_list *head, char *s, int start)
-{
-	char	specifier;
-	char	*flags;
-	int		i;
-
-	i = -1;
-	while (s[++i])
-		if (s[i] == '%')
-		{
-			ft_lstadd_back(&head,
-					new_data(NULL,
-						get_specifier(s, i + 1), get_flags(s, i + 1)));
-			i = get_specifier_index(s, start);
-		}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:28:09 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/23 06:38:51 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/23 11:09:08 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_printf(const char *s, ...)
 {
-	t_list	*head;
+	t_lilst		*head;
 
-	data_habdler(&head, (char*)s);
+	data_handler(&head, (char*)s);
 
 	//TODO: part2: modify nodes data
 	
