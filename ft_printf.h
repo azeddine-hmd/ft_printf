@@ -15,7 +15,8 @@ typedef struct	s_lilst
 	int			data_handler(t_lilst **head, char *s);
 	t_lilst		*new_data(char *string, char specifier, char *flags);
 	int			get_specifier_index(char *s, int start);
-	char		get_specifier(char s, int start);
+	char		get_specifier(char *s, int start);
 	int			get_flags(char *s, int start, char **adr_flags);
+	void		lstadd_back(t_lilst **head, t_lilst *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:28:09 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/24 20:40:26 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/24 20:56:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_printf(const char *s, ...)
 
 	head = NULL;
 	data_handler(&head, (char*)s);
-	printf("YEEY");
+	printf("head->string = '%s'\n", head->string);
 
 	//TODO: part2: modify nodes data	
 	return (0);

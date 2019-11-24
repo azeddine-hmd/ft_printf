@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:07:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/24 20:47:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/24 20:54:12 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int			get_flags(char *s, int start, char **adr_flags)
 	int		end;
 	int		len;
 
-	if (start >= strlen(s) || start < 0 || !s)
+	if (start >= ft_strlen(s) || start < 0 || !s)
 		return (-1);
 	end = get_specifier_index(s, start) - 1;
 	len = end - start + 1;

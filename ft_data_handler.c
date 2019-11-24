@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 08:21:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/24 20:47:34 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/24 20:53:48 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int		addlst_formatdata(t_lilst **head, char *s, int i, int *start)
 	int		flags_return;
 	int		s_length;
 
-	s_length = strlen(s);
+	s_length = ft_strlen(s);
 	if (!s || i < 0 || *start < 0 || i >= s_length || *start >= s_length)
 		return (-1);
 	if ((specifier = get_specifier(s, i)) == -1)
@@ -98,7 +98,7 @@ int				data_handler(t_lilst **head, char *s)
 				return (-1);
 		}
 		else if (s[i] != '%' && (s[i + 1] == '%' || s[i + 1] == '\0'))
-			if ((string_return = addlst_stringdata(head, s, i, &start))
+			if ((string_return = addlst_stringdata(head, s, i, start))
 					== -1)
 				return (-1);
 	}

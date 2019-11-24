@@ -6,10 +6,11 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 20:36:37 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/24 20:48:00 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/24 20:55:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
 /*
 ** [Description]:
@@ -21,7 +22,7 @@
 **      NULL: if no "data" found in the list.
 */
 
-t_lilst		*lstlast(t_lilst *lst)
+static t_lilst	*lstlast(t_lilst *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -35,7 +36,7 @@ t_lilst		*lstlast(t_lilst *lst)
 ** This function add "data" data to the front of the list.
 */
 
-void	lstadd_front(t_lilst **head, t_lilst *data)
+static void		lstadd_front(t_lilst **head, t_lilst *data)
 {
 	if (*head)
 		data->next = *head;
@@ -49,7 +50,7 @@ void	lstadd_front(t_lilst **head, t_lilst *data)
 ** if list is empty it add it in the front.
 */
 
-void	lstadd_back(t_lilst **head, t_lilst *data)
+void			lstadd_back(t_lilst **head, t_lilst *data)
 {
 	if (!*head)
 		lstadd_front(head, data);
