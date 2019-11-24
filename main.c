@@ -2,7 +2,7 @@
 
 int		main(void)
 {
-	ft_printf("welcome");
+	ft_printf("welcome%%%slol?");
 
 	return (0);
 }
