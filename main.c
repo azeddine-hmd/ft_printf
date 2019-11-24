@@ -1,9 +1,8 @@
-//#include "ft_printf.c"
-#include <stdio.h>
+#include "ft_printf.h"
 
 int		main(void)
 {
-	//ft_printf("this feels so good");
-	ft_printf("asdadf%.0srrr");
+	ft_printf("welcome");
+
 	return (0);
 }

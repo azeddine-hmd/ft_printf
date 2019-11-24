@@ -1,12 +1,12 @@
 NAME = libftprintf.a
 
-CC = gcc -Wall -Wextra -Werror
+GCC = gcc -Wall -Wextra -Werror
 
 MAKE = make -C libft
 
-MCF = ft_printf.c
+MCF = ft_printf.c ft_data_handler.c ft_data_handler_utils.c 
 
-MOF = ft_printf.o
+MOF = ft_printf.o ft_data_handler.o ft_data_handler_utils.o
 
 ARCHIVE = ar rc
 
@@ -16,7 +16,7 @@ all: $(NAME)
 
 $(NAME):
 	$(MAKE) all
-	$(CC) -c $(MCF)
+	$(GCC) -c $(MCF)
 	$(ARCHIVE) $(NAME) $(MOF)
 
 clean:

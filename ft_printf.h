@@ -1,11 +1,11 @@
 #ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include "libft/libft.h"
-# include <stdarg.h>
+#define FT_PRINTF_H
+#include "libft/libft.h"
+#include <stdarg.h>
 
 typedef struct	s_lilst
 {
-	char			*str;
+	char			*string;
 	char			specifier;
 	char			*flags;
 	struct s_lilst	*next;
