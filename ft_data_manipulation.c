@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_data_manipulation.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/21 20:28:09 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/25 20:14:32 by ahamdaou         ###   ########.fr       */
+/*   Created: 2019/11/25 14:53:02 by ahamdaou          #+#    #+#             */
+/*   Updated: 2019/11/26 01:09:22 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *s, ...)
+static int	specifier_handler(va_list arglst, t_lilst *data, char specifier)
 {
-	t_lilst		*head;
-	va_list		arglst;
-
-	// [PART I]: inserting data in the list.
-	head = NULL;
-	if (data_handler(&head, (char*)s) == -1)
+	if (!data)
 		return (-1);
+	if (specifier == 'c')
+		return (c_handler(arglst, data));
+	//TODO: s_handler() ...
+	return (-1);
+}
 
-	// [PART II] modifying all data in the list.
-	va_start(arglst, s);
-	if (data_manipulation(&head, arglst) == -1)
-		return (-1);
-	va_end(arglst);
+int			data_manipulation(t_lilst **head, va_list arglst)
+{
+	t_lilst		*data;
 
-	// [PART III] join and free
-	//TODO: join all string data.
-	//TODO: free list.
-
-	return (0);
+	data = *head;
+	while (data)
+	{
+		if (specifier_handler(arglst, data, data->specifier) == -1)
+			return (-1);
+		data = data->next;
+	}
+	return (1);
 }

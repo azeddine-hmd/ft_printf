@@ -59,14 +59,13 @@ int			get_specifier_index(char *s, int start)
 	{
 		j = -1;
 		while (all_specifiers[++j])
-		{
 			if (s[i] == all_specifiers[j])
 			{
 				free(all_specifiers);
 				return (i);
 			}
-		}
 	}
+	free(all_specifiers);
 	return (-1);
 }
 

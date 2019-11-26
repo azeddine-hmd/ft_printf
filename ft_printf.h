@@ -18,6 +18,7 @@ typedef struct	s_lilst
 	char		get_specifier(char *s, int start);
 	int			get_flags(char *s, int start, char **adr_flags);
 	void		lstadd_back(t_lilst **head, t_lilst *data);
-	int			data_modifier(t_lilst **head, va_list arglst);
+	int			data_manipulation(t_lilst **head, va_list arglst);
+	int			c_handler(va_list arglst, t_lilst *data);
 
 #endif
