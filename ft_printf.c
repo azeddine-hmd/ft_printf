@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:28:09 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/25 02:43:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/25 20:14:32 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,22 @@
 int		ft_printf(const char *s, ...)
 {
 	t_lilst		*head;
+	va_list		arglst;
 
+	// [PART I]: inserting data in the list.
 	head = NULL;
-	data_handler(&head, (char*)s);
-	printf("data(1)->string = '%s'\n", (head->string);
-	printf("\n<=====================>\n");
-	printf("data(2)->string = '%c'\n", (head->next)->string);
-	printf("data(2)->specifier = '%c'\n", (head->next)->specifier);
-	printf("data(2)->flags '%c'\n", (head->next)->flags);
-	printf("\n<=====================>\n");
-	if ((head->next)-next == NULL)
-		printf("\n[NO MORE DATA LEFT]\n");
-	//TODO: part2: modify nodes data
+	if (data_handler(&head, (char*)s) == -1)
+		return (-1);
+
+	// [PART II] modifying all data in the list.
+	va_start(arglst, s);
+	if (data_modifier(&head, arglst) == -1)
+		return (-1);
+	va_end(arglst);
+
+	// [PART III] join and free
+	//TODO: join all string data.
+	//TODO: free list.
+
 	return (0);
 }
