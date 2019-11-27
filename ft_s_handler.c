@@ -6,6 +6,6 @@ int		ft_s_handler(va_list arglst, t_lilst *data)
 
 	arg = va_arg(arglst, char*);
 	data->flags = ft_strdup("flags");
-	printf("s_handler reached\n");
+	printf("ft_s_handler reached\n");
 	return (1);
 }

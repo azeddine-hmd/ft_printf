@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:53:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/27 23:39:18 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/27 23:48:39 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	specifier_handler(va_list arglst, t_lilst *data, char specifier)
 	else if (specifier == 'x')
 		return (ft_x_handler(arglst, data));
 	else if (specifier == 'X')
-		return (ft_X_handler(arglst, data));
+		return (ft_capital_x_handler(arglst, data));
 	else if (specifier == '%')
 		return (ft_percentage_handler(data));
 	return (-1);
