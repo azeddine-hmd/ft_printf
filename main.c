@@ -1,7 +1,8 @@
 #include "ft_printf.h"
+#include <stdio.h>
 
 int		main(void)
 {
-	ft_printf("%c");
+	printf("return: %d\n", ft_printf("%%%c%c%c%%"));
 	return (0);
 }

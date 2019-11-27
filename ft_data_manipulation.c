@@ -18,19 +18,36 @@ static int	specifier_handler(va_list arglst, t_lilst *data, char specifier)
 		return (-1);
 	if (specifier == 'c')
 		return (c_handler(arglst, data));
-	//TODO: s_handler() ...
+	else if (specifier == 's')
+		return (s_handler(arglst, data));
+	else if (specifier == 'p')
+		return (p_handler(arglst, data));
+	else if (specifier == 'd')
+		return (d_handler(arglst, data));
+	else if (specifier == 'i')
+		return (i_handler(arglst, data));
+	else if (specifier == 'u')
+		return (u_handler(arglst, data));
+	else if (specifier == 'x')
+		return (x_handler(arglst, data));
+	else if (specifier == 'X')
+		return (X_handler(arglst, data));
+	else if (specifier == '%')
+		return (P_handler(arglst, data));
 	return (-1);
 }
 
-int			data_manipulation(t_lilst **head, va_list arglst)
+int			data_manipulation(t_lilst *database, va_list arglst)
 {
 	t_lilst		*data;
 
-	data = *head;
+	data = database;
 	while (data)
 	{
-		if (specifier_handler(arglst, data, data->specifier) == -1)
-			return (-1);
+		if (data->specifier != '\0')
+			if (specifier_handler(arglst, data, data->specifier)
+					== -1)
+				return (-1);
 		data = data->next;
 	}
 	return (1);

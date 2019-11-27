@@ -14,17 +14,17 @@
 
 int		ft_printf(const char *s, ...)
 {
-	t_lilst		*head;
+	t_lilst		*database;
 	va_list		arglst;
 
 	// [PART I]: inserting data in the list.
-	head = NULL;
-	if (data_handler(&head, (char*)s) == -1)
+	database = NULL;
+	if (data_handler(&database, (char*)s) == -1)
 		return (-1);
 
 	// [PART II] modifying all data in the list.
 	va_start(arglst, s);
-	if (data_manipulation(&head, arglst) == -1)
+	if (data_manipulation(database, arglst) == -1)
 		return (-1);
 	va_end(arglst);
 
@@ -32,5 +32,5 @@ int		ft_printf(const char *s, ...)
 	//TODO: join all string data.
 	//TODO: free list.
 
-	return (0);
+	return (1);
 }

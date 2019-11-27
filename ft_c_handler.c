@@ -1,10 +1,9 @@
 #include "ft_printf.h"
-#include <stdio.h>
 
 int		c_handler(va_list arglst, t_lilst *data)
 {
-	printf("c_handler() excuted");
+	printf("c_handler reached\n");
 	va_arg(arglst, int);
-	data->string = "lol";
+	data->flags = ft_strdup("flags");
 	return (1);
 }

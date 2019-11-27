@@ -28,7 +28,7 @@ static int		addlst_stringdata(t_lilst **head, char *s, int i, int start)
 	int		s_length;
 
 	s_length = ft_strlen(s);
-	if (!s || i < 0 || i >= s_length || start < 0 || start >= s_length)
+	if (!s || i < 0 || i >= s_length)
 		return (-1);
 	if (!(string = ft_substr(s, start, (i - start + 1))))
 		return (-1);
@@ -56,7 +56,7 @@ static int		addlst_formatdata(t_lilst **head, char *s, int i, int *start)
 	int		s_length;
 
 	s_length = ft_strlen(s);
-	if (!s || i < 0 || *start < 0 || i >= s_length || *start >= s_length)
+	if (!s || i < 0 || i >= s_length)
 		return (-1);
 	if ((specifier = get_specifier(s, i)) == -1)
 		return (-1);
@@ -94,8 +94,10 @@ int				data_handler(t_lilst **head, char *s)
 			if ((format_return = addlst_formatdata(head, s, i + 1, &start))
 					== -1)
 				return (-1);
-			if ((i = get_specifier_index(s, i)) == -1)
+			if ((i = get_specifier_index(s, i + 1)) == -1)
 				return (-1);
+			if (s[i + 1] == '\0')
+				break ;
 		}
 		else if (s[i] != '%' && (s[i + 1] == '%' || s[i + 1] == '\0'))
 			if ((string_return = addlst_stringdata(head, s, i, start))
