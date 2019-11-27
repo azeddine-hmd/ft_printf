@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:53:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/27 21:27:07 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/11/27 23:39:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@ static int	specifier_handler(va_list arglst, t_lilst *data, char specifier)
 	if (!data)
 		return (-1);
 	if (specifier == 'c')
-		return (c_handler(arglst, data));
+		return (ft_c_handler(arglst, data));
 	else if (specifier == 's')
-		return (s_handler(arglst, data));
+		return (ft_s_handler(arglst, data));
 	else if (specifier == 'p')
-		return (p_handler(arglst, data));
+		return (ft_p_handler(arglst, data));
 	else if (specifier == 'd')
-		return (d_handler(arglst, data));
+		return (ft_d_handler(arglst, data));
 	else if (specifier == 'i')
-		return (i_handler(arglst, data));
+		return (ft_i_handler(arglst, data));
 	else if (specifier == 'u')
-		return (u_handler(arglst, data));
+		return (ft_u_handler(arglst, data));
 	else if (specifier == 'x')
-		return (x_handler(arglst, data));
+		return (ft_x_handler(arglst, data));
 	else if (specifier == 'X')
-		return (X_handler(arglst, data));
+		return (ft_X_handler(arglst, data));
 	else if (specifier == '%')
-		return (P_handler(arglst, data));
+		return (ft_percentage_handler(data));
 	return (-1);
 }
 
