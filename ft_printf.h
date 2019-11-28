@@ -20,6 +20,9 @@ typedef struct	s_lilst
 	int			get_flags(char *s, int start, char **adr_flags);
 	void		lstadd_back(t_lilst **head, t_lilst *data);
 	int			data_manipulation(t_lilst *database, va_list arglst);
+	int			ft_get_flag(char *s, int start, char *flag);
+	int			ft_get_width(char *s, int start, char **width);
+	int			ft_get_precision(char *s, int start, char **precision)
 	int			ft_c_handler(va_list arglst, t_lilst *data);
 	int			ft_s_handler(va_list arglst, t_lilst *data);
 	int			ft_p_handler(va_list arglst, t_lilst *data);
