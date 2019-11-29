@@ -1,8 +1,8 @@
 #include "ft_printf.h"
-#include <stdio.h>
 
 int		main(void)
 {
-	printf("return: %d\n", ft_printf("TEST%%%c%c%c%%TEST"));
+	printf("ft_printf return: %d\n", ft_printf("\n\n'%23c'\n", 'a'));
+	printf("\n\n'%0c'\n", 'a');
 	return (0);
 }
