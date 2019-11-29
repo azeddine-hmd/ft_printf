@@ -15,17 +15,24 @@
 int		ft_c_handler(va_list arglst, t_lilst *data)
 {
 	char	arg;
-	char	*flag;
+	char	flag;
 	char	*width;
 	char	*precision;
+	int		index;
 
-	flag = NULL;
+	flag = '\0';
 	width = NULL;
 	precision = NULL;
-	ft
 	arg = va_arg(arglst, int);
-	data->string = ft_strdup("lol");
-	printf("ft_c_handler reached\n");
-	
+	printf("argument = %c\n", arg);
+	if ((index = ft_get_flag(data->flags, 0, &flag)) == -1)
+			return (-1);
+	if ((index = ft_get_width(data->flags, index, &width)) == -1)
+			return (-1);
+	if ((index = ft_get_precision(data->flags, index, &precision)) == -1)
+			return (-1);
+	printf("flag = %c\n", flag);
+	printf("width = %s\n", width);
+	printf("precision = %s\n\n", precision);
 	return (1);
 }
