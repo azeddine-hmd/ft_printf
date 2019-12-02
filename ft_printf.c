@@ -16,21 +16,25 @@ int		ft_printf(const char *s, ...)
 {
 	t_lilst		*database;
 	va_list		arglst;
+	int			output_len;
 
 	// [PART I]: inserting data in the list.
 	database = NULL;
-	if (data_handler(&database, (char*)s) == -1)
+	if (ft_insert_data(&database, (char*)s) == -1)
 		return (-1);
 
 	// [PART II] modifying all data in the list.
 	va_start(arglst, s);
-	if (data_manipulation(database, arglst) == -1)
+	if (ft_manipulate_data(database, arglst) == -1)
 		return (-1);
 	va_end(arglst);
 
 	// [PART III] join and free
-	//TODO: join all string data.
-	//TODO: free list.
+	output_len = 0;
+	if ((output_len = ft_lstprint_string(database)) == -1)
+		return (-1);
+	ft_lstclear(database);
+	database = NULL;
 
-	return (1);
+	return (output_len);
 }

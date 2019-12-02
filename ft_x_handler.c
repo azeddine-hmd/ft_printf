@@ -17,7 +17,8 @@ int		ft_x_handler(va_list arglst, t_lilst *data)
 	char	arg;
 
 	arg = va_arg(arglst, unsigned int);
-	data->flags = ft_strdup("flags");
+	data->string = ft_strdup("string");
 	printf("ft_x_handler reached\n");
+	arg++;
 	return (1);
 }

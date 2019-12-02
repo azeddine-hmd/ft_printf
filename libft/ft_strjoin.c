@@ -22,8 +22,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	str_length = ft_strlen(s1) + ft_strlen(s2);
-	str = (char*)malloc(str_length + 1);
-	if (!str)
+	if (!(str = (char*)malloc(str_length + 1)))
 		return (NULL);
 	i = 0;
 	j = -1;

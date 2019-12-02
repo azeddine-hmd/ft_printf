@@ -16,10 +16,9 @@ int		ft_get_flag(char *s, int start, char *flag)
 {
 	char	*flags;
 	int		i;
-	int		specifier_index;
 
 	if (!s)
-			return(start);
+		return(start);
 	if (!(flags = ft_strdup("-+ #0")))
 		return (-1);
 	i = -1;
@@ -40,7 +39,14 @@ int		ft_get_width(char *s, int start, char **width)
 	int		len;
 	
 	if (!s)
-			return(start);
+		return(start);
+	if (s[0] == '*')
+	{
+		len = 1;
+		if (!(*width = ft_substr(s, start, len)))
+			return (-1);
+		return (start + len);
+	}
 	i = start - 1;
 	len = 0;
 	while (ft_isdigit(s[++i]))
@@ -56,7 +62,7 @@ int		ft_get_precision(char *s, int start, char **precision)
 	int		len;
 
 	if (!s)
-			return(start);
+		return(start);
 	if (s[start] == '.' && s[start + 1] == '*')
 	{
 		if (!(*precision = ft_substr(s, start, 2)))

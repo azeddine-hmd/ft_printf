@@ -21,7 +21,7 @@
 ** -1: if an error occurred (during allocation).
 */
 
-static int		addlst_stringdata(t_lilst **head, char *s, int i, int start)
+static int		addlst_stringdata(t_lilst **database, char *s, int i, int start)
 {
 	t_lilst	*data;
 	char	*string;
@@ -32,9 +32,9 @@ static int		addlst_stringdata(t_lilst **head, char *s, int i, int start)
 		return (-1);
 	if (!(string = ft_substr(s, start, (i - start + 1))))
 		return (-1);
-	if (!(data = new_data(string, 0, NULL)))
+	if (!(data = ft_new_data(string, 0, NULL)))
 		return (-1);
-	lstadd_back(head, data);
+	ft_lstadd_back(database, data);
 	return (1);
 }
 
@@ -47,7 +47,7 @@ static int		addlst_stringdata(t_lilst **head, char *s, int i, int start)
 ** -1: if an error occurred (during allocation).
 */
 
-static int		addlst_formatdata(t_lilst **head, char *s, int i, int *start)
+static int		addlst_formatdata(t_lilst **database, char *s, int i)
 {
 	t_lilst	*data;
 	char	specifier;
@@ -58,27 +58,26 @@ static int		addlst_formatdata(t_lilst **head, char *s, int i, int *start)
 	s_length = ft_strlen(s);
 	if (!s || i < 0 || i >= s_length)
 		return (-1);
-	if ((specifier = get_specifier(s, i)) == -1)
+	if ((specifier = ft_get_specifier(s, i)) == -1)
 		return (-1);
-	if ((flags_return = get_flags(s, i, &flags)) == -1)
+	if ((flags_return = ft_get_flags(s, i, &flags)) == -1)
 		return (-1);
-	if (!(data = new_data(NULL, specifier, flags)))
+	if (!(data = ft_new_data(NULL, specifier, flags)))
 		return (-1);
-	lstadd_back(head, data);
-	*start = i + 1;
+	ft_lstadd_back(database, data);
 	return (1);
 }
 
 /*
 ** [Description]:
-** - This function insert data needed for [part II] in the "head".
+** - This function insert data needed for [part II] in the "database".
 **
 ** [Return Values]:
 **  1: if everything went normal.
 ** -1: if an error occurced (during allocation).
 */
 
-int				data_handler(t_lilst **head, char *s)
+int				ft_insert_data(t_lilst **database, char *s)
 {
 	int		start;
 	int		format_return;
@@ -91,16 +90,17 @@ int				data_handler(t_lilst **head, char *s)
 	{
 		if (s[i] == '%')
 		{
-			if ((format_return = addlst_formatdata(head, s, i + 1, &start))
+			if ((format_return = addlst_formatdata(database, s, i + 1))
 					== -1)
 				return (-1);
-			if ((i = get_specifier_index(s, i + 1)) == -1)
+			if ((i = ft_get_specifier_index(s, i + 1)) == -1)
 				return (-1);
+			start = i + 1;
 			if (s[i + 1] == '\0')
 				break ;
 		}
 		else if (s[i] != '%' && (s[i + 1] == '%' || s[i + 1] == '\0'))
-			if ((string_return = addlst_stringdata(head, s, i, start))
+			if ((string_return = addlst_stringdata(database, s, i, start))
 					== -1)
 				return (-1);
 	}

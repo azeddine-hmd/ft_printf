@@ -17,7 +17,8 @@ int		ft_d_handler(va_list arglst, t_lilst *data)
 	int		arg;
 
 	arg = va_arg(arglst, int);
-	data->flags = ft_strdup("flags");
+	data->string = ft_strdup("string");
 	printf("ft_d_handler reached\n");
+	arg++;
 	return (1);
 }

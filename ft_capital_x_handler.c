@@ -16,8 +16,9 @@ int		ft_capital_x_handler(va_list arglst, t_lilst *data)
 {
 	char	arg;
 
+	arg = va_arg(arglst, unsigned int);
 	data->string = ft_strdup("string");
 	printf("ft_capital_x_handler reached\n");
-	arg = va_arg(arglst, unsigned int);
+	arg++;
 	return (1);
 }

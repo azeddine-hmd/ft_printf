@@ -21,7 +21,7 @@
 **  NULL: if an error occurred (during allocation).
 */
 
-t_lilst		*new_data(char *string, char specifier, char *flags)
+t_lilst		*ft_new_data(char *string, char specifier, char *flags)
 {
 	t_lilst		*data;
 
@@ -44,7 +44,7 @@ t_lilst		*new_data(char *string, char specifier, char *flags)
 **  -1: if an error occurred (during allocation).
 */
 
-int			get_specifier_index(char *s, int start)
+int			ft_get_specifier_index(char *s, int start)
 {
 	char	*all_specifiers;
 	int		i;
@@ -65,7 +65,6 @@ int			get_specifier_index(char *s, int start)
 				return (i);
 			}
 	}
-	free(all_specifiers);
 	return (-1);
 }
 
@@ -75,13 +74,13 @@ int			get_specifier_index(char *s, int start)
 **    -1: if an error occurred (during allocation).
 */
 
-char		get_specifier(char *s, int start)
+char		ft_get_specifier(char *s, int start)
 {
 	int		index;
 
 	if (!s)
 		return (-1);
-	if ((index = get_specifier_index(s, start)) < 0)
+	if ((index = ft_get_specifier_index(s, start)) < 0)
 		return (-1);
 	return (s[index]);
 }
@@ -96,14 +95,14 @@ char		get_specifier(char *s, int start)
 ** -1: if an error occurred (during allocation).
 */
 
-int			get_flags(char *s, int start, char **adr_flags)
+int			ft_get_flags(char *s, int start, char **adr_flags)
 {
 	int		end;
 	int		len;
 
 	if (start >= ft_strlen(s) || start < 0 || !s)
 		return (-1);
-	end = get_specifier_index(s, start) - 1;
+	end = ft_get_specifier_index(s, start) - 1;
 	len = end - start + 1;
 	if (end < 0)
 		return (-1);

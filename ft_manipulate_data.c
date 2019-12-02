@@ -37,7 +37,7 @@ static int	specifier_handler(va_list arglst, t_lilst *data, char specifier)
 	return (-1);
 }
 
-int			data_manipulation(t_lilst *database, va_list arglst)
+int			ft_manipulate_data(t_lilst *database, va_list arglst)
 {
 	t_lilst		*data;
 

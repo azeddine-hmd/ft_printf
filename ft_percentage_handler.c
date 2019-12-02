@@ -2,7 +2,7 @@
 
 int		ft_percentage_handler(t_lilst *data)
 {
-	data->flags = ft_strdup("flags");
-	printf("ft_percentage_handler reached\n");
+	if (!(data->string = ft_strdup("%")))
+			return (-1);
 	return (1);
 }

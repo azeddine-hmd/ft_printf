@@ -2,7 +2,6 @@
 
 int		main(void)
 {
-	printf("ft_printf return: %d\n", ft_printf("\n\n'%23c'\n", 'a'));
-	printf("\n\n'%0c'\n", 'a');
+	ft_printf("%-12c %c %*c  %%%%", 'a', 'b', -3, 'd');
 	return (0);
 }

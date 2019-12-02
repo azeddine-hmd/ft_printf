@@ -22,13 +22,13 @@
 **      NULL: if no "data" found in the list.
 */
 
-static t_lilst	*lstlast(t_lilst *lst)
+static t_lilst	*lstlast(t_lilst *data)
 {
-	if (!lst)
+	if (!data)
 		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	while (data->next)
+		data = data->next;
+	return (data);
 }
 
 /*
@@ -36,12 +36,12 @@ static t_lilst	*lstlast(t_lilst *lst)
 ** This function add "data" data to the front of the list.
 */
 
-static void		lstadd_front(t_lilst **head, t_lilst *data)
+static void		lstadd_front(t_lilst **database, t_lilst *data)
 {
-	if (*head)
-		data->next = *head;
+	if (*database)
+		data->next = *database;
 	else
-		*head = data;
+		*database = data;
 }
 
 /*
@@ -50,10 +50,37 @@ static void		lstadd_front(t_lilst **head, t_lilst *data)
 ** if list is empty it add it in the front.
 */
 
-void			lstadd_back(t_lilst **head, t_lilst *data)
+void			ft_lstadd_back(t_lilst **database, t_lilst *data)
 {
-	if (!*head)
-		lstadd_front(head, data);
+	if (!*database)
+		lstadd_front(database, data);
 	else
-		(lstlast(*head))->next = data;
+		(lstlast(*database))->next = data;
+}
+
+static void		lstremove(t_lilst *data)
+{
+	if (!data)
+		return ;
+	if (data->string)
+		free(data->string);
+	data->string = NULL;
+	if (data->flags)
+		free(data->flags);
+	data->flags = NULL;
+	data->next = NULL;
+	data->specifier = '\0';
+	free(data);
+}
+
+void			ft_lstclear(t_lilst *database)
+{
+	t_lilst		*tmp;
+
+	while (database)
+	{
+		tmp = database->next;
+		lstremove(database);
+		database = tmp;	
+	}
 }

@@ -14,10 +14,11 @@
 
 int		ft_i_handler(va_list arglst, t_lilst *data)
 {
-	int		i;
+	int		arg;
 
-	i = va_arg(arglst, int);
-	data->flags = ft_strdup("flags");
+	arg = va_arg(arglst, int);
+	data->string = ft_strdup("string");
 	printf("ft_i_handler reached\n");
+	arg++;
 	return (1);
 }
