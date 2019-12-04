@@ -2,6 +2,6 @@
 
 int		main(void)
 {
-	ft_printf("%-12c %c %*c  %%%%", 'a', 'b', -3, 'd');
+	ft_printf("%c", 'a');
 	return (0);
 }
