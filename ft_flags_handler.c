@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 04:41:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/04 04:13:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/04 04:38:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@ int		ft_get_flag(char *s, int start, char *flag)
 		while (flags[++j])
 		{
 			if (s[i] == flags[j])
-			{
 				if (!(*flag == '-' && flags[j] == '0'))
+				{
 					*flag = flags[j];
-			}
-			else
-				break ;
+					break ;
+				}
 		}
+		if (j == 5)
+			break ;
 	}
 	free(flags);
 	return (i);

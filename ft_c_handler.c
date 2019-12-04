@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 23:53:04 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/04 04:12:50 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/04 04:19:22 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,7 @@ int		ft_width_maker(va_list arglst, char flag, char *width, char **string)
 		**string = va_arg(arglst, int);
 	if (flag == '\0')
 		*(*string + (width2int - 1)) = va_arg(arglst, int);
-	return (1);
-}
-
-int		ft_c_handler(va_list arglst, t_lilst *data)
-{
+	return (1); } int		ft_c_handler(va_list arglst, t_lilst *data) {
 	char	*string;
 	char	*width;
 	int		start;
