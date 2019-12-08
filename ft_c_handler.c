@@ -6,24 +6,11 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 23:53:04 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/04 04:19:22 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/06 08:59:50 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*ft_bblank(int size)
-{
-	char	*str;
-	int		i;
-
-	if (!(str = (char*)malloc(size)))
-		return(NULL);
-	i = -1;
-	while (++i < size)
-		str[i] = ' ';
-	return (str);
-}
 
 int		ft_width_maker(va_list arglst, char flag, char *width, char **string)
 {
@@ -46,7 +33,11 @@ int		ft_width_maker(va_list arglst, char flag, char *width, char **string)
 		**string = va_arg(arglst, int);
 	if (flag == '\0')
 		*(*string + (width2int - 1)) = va_arg(arglst, int);
-	return (1); } int		ft_c_handler(va_list arglst, t_lilst *data) {
+	return (1);
+}
+
+int		ft_c_handler(va_list arglst, t_lilst *data)
+{
 	char	*string;
 	char	*width;
 	int		start;
@@ -67,9 +58,8 @@ int		ft_width_maker(va_list arglst, char flag, char *width, char **string)
 	if (ft_get_width(data->flags, start, &width) == -1)
 		return (-1);
 	string = NULL;
-	if (ft_width_maker(arglst, flag, width, &string) == -1)
+	if (ft_width_maker(arglst, flag, width, &(data->string)) == -1)
 		return (-1);
-	data->string = string;
 	if (width)
 		free(width);
 	return (1);

@@ -2,6 +2,11 @@
 
 int		main(void)
 {
-	ft_printf("%------c", 'a');
+	char	*s;
+	int		re;
+
+	s  = "noice";
+	re = ft_printf("'%s'", s);
+	printf("\nre = %d\n", re);
 	return (0);
 }

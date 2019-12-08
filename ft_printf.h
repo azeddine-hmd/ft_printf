@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/06 02:43:39 by ahamdaou          #+#    #+#             */
+/*   Updated: 2019/12/06 09:30:07 by ahamdaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 #define FT_PRINTF_H
 #include "libft/libft.h"
@@ -34,5 +46,8 @@ typedef struct	s_lilst
 	int			ft_percentage_handler(t_lilst *data);
 	int			ft_lstprint_string(t_lilst *database);
 	void		ft_lstclear(t_lilst *database);
+	int			width2int_maker(int *iterator, char *flag, char *s, va_list al);
+	char		*argstr_maker(int iterator, char *s, va_list arglst);
+	char		*ft_bblank(int size);
 
 #endif

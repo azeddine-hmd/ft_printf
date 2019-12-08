@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 04:41:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/04 04:38:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/06 09:43:47 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ int		ft_get_width(char *s, int start, char **width)
 {
 	int		i;
 	int		len;
-	
+
 	if (!s)
 		return(start);
-	if (s[0] == '*')
+	if (s[start] == '*')
 	{
 		len = 1;
 		if (!(*width = ft_substr(s, start, len)))
@@ -60,6 +60,8 @@ int		ft_get_width(char *s, int start, char **width)
 	len = 0;
 	while (ft_isdigit(s[++i]))
 		len++;
+	if (len == 0)
+		return (start + len);
 	if (!(*width = ft_substr(s, start, len)))
 		return (-1);
 	return (start + len);
@@ -74,19 +76,19 @@ int		ft_get_precision(char *s, int start, char **precision)
 		return(start);
 	if (s[start] == '.' && s[start + 1] == '*')
 	{
-		if (!(*precision = ft_substr(s, start, 2)))
+		if (!(*precision = ft_substr(s, start + 1, 2)))
 			return (-1);
 		return (start + 2);
 	}
 	else if (s[start] == '.' && s[start + 1] != '*')
 	{
 		i = start;
-		len = 1;
+		len = 0;
 		while (ft_isdigit(s[++i]))
 			len++;
-		if (!(*precision = ft_substr(s, start, len)))
+		printf("len = '%d'\n", len);
+		if (!(*precision = ft_substr(s, start + 1, len)))
 			return (-1);
-		printf("len = %d\n", len);
 		return (len + start);
 	}
 	return (start);

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:28:09 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/04 04:10:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/06 09:31:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		ft_printf(const char *s, ...)
 	if ((output_len = ft_lstprint_string(database)) == -1)
 		return (-1);
 	ft_lstclear(database);
-	database = NULL;
 
 	return (output_len);
 }
