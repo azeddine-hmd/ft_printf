@@ -86,7 +86,6 @@ int		ft_get_precision(char *s, int start, char **precision)
 		len = 0;
 		while (ft_isdigit(s[++i]))
 			len++;
-		printf("len = '%d'\n", len);
 		if (!(*precision = ft_substr(s, start + 1, len)))
 			return (-1);
 		return (len + start);

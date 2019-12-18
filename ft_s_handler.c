@@ -22,7 +22,7 @@ static char		*string_maker(char flag, int width2int, char *argstr)
 	printf("width2int = '%d'\n", width2int);
 	if (width2int <= ft_strlen(argstr))
 		return (ft_strdup(argstr));
-	if (!(string = ft_bblank(width2int)))
+	if (!(string = ft_bblank(width2int, ' ')))
 		return (NULL);
 	if (flag == '-')
 	{
@@ -32,8 +32,8 @@ static char		*string_maker(char flag, int width2int, char *argstr)
 	}
 	else if (flag == '\0')
 	{
-		i = 0;
-		j = width2int - ft_strlen(argstr) - 1;
+		i = -1;
+		j = width2int - ft_strlen(argstr);
 		while (argstr[++i])
 			string[j++] = argstr[i];
 	}
@@ -51,6 +51,7 @@ int				ft_s_handler(va_list arglst, t_lilst *data)
 	flag = '\0';
 	if ((iterator = ft_get_flag(data->flags, iterator, &flag)) == -1)
 		return (-1);
+	width2int = 0;
 	if ((width2int = width2int_maker(&iterator, &flag, data->flags, arglst))
 			== -1)
 		return (-1);

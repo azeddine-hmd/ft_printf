@@ -48,6 +48,7 @@ typedef struct	s_lilst
 	void		ft_lstclear(t_lilst *database);
 	int			width2int_maker(int *iterator, char *flag, char *s, va_list al);
 	char		*argstr_maker(int iterator, char *s, va_list arglst);
-	char		*ft_bblank(int size);
+	char		*ft_bblank(int size, char c);
+	int			pre2int_maker(int iterator, int *pre2int, char *s, va_list arl);
 
 #endif

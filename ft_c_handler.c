@@ -27,7 +27,7 @@ int		ft_width_maker(va_list arglst, char flag, char *width, char **string)
 		width2int *= -1;
 		flag = '-';
 	}
-	if (!(*string = ft_bblank(width2int)))
+	if (!(*string = ft_bblank(width2int, ' ')))
 		return (-1);
 	if (flag == '-')
 		**string = va_arg(arglst, int);
@@ -38,7 +38,6 @@ int		ft_width_maker(va_list arglst, char flag, char *width, char **string)
 
 int		ft_c_handler(va_list arglst, t_lilst *data)
 {
-	char	*string;
 	char	*width;
 	int		start;
 	char	flag;
@@ -57,7 +56,6 @@ int		ft_c_handler(va_list arglst, t_lilst *data)
 	width = NULL;
 	if (ft_get_width(data->flags, start, &width) == -1)
 		return (-1);
-	string = NULL;
 	if (ft_width_maker(arglst, flag, width, &(data->string)) == -1)
 		return (-1);
 	if (width)

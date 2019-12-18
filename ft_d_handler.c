@@ -12,13 +12,32 @@
 
 #include "ft_printf.h"
 
-int		ft_d_handler(va_list arglst, t_lilst *data)
+static char		*argstr_maker(int iterator, char *s, va_list arglst, char *flag)
 {
-	int		arg;
+	int		precision2int;
+	char	*argstr;
 
-	arg = va_arg(arglst, int);
-	data->string = ft_strdup("string");
-	printf("ft_d_handler reached\n");
-	arg++;
+	if ((precision2int_maker(iterator, &precision2int, s, argstr)) == -1)	
+			return (-1);
+	printf("precision2int = %d\n", precision2int);
+}
+
+int				ft_d_handler(va_list arglst, t_lilst *data)
+{
+	int		iterator;
+	char	flag;
+	int		width2int;
+	char	*argstr;
+
+	iterator = 0;
+	flag = '\0';
+	if ((iterator = ft_get_flag(data->flags, iterator, &flag)) == -1)
+		return (-1);
+	width2int = 0;
+	if ((width2int = width2int_maker(&iterator, &flag, data->flags, arglst))
+			== -1)
+		return (-1);
+	if (!(argstr = argstr_maker(iterator, data->flags, arglst, &flag)))
+			return (-1);
 	return (1);
 }
