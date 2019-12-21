@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 02:43:39 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/06 09:30:07 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/20 18:15:40 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_lilst
 	int			width2int_maker(int *iterator, char *flag, char *s, va_list al);
 	char		*argstr_maker(int iterator, char *s, va_list arglst);
 	char		*ft_bblank(int size, char c);
-	int			pre2int_maker(int iterator, int *pre2int, char *s, va_list arl);
+	int			numlen(int n);
+	char		*dargstr_maker(int iter, char *s, va_list arglst, char *flag);
 
 #endif

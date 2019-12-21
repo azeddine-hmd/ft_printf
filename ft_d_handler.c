@@ -6,20 +6,36 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 23:53:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/27 23:53:19 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/22 00:38:26 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char		*argstr_maker(int iterator, char *s, va_list arglst, char *flag)
+static char		*string_maker(char flag, int width2int, char *argstr)
 {
-	int		precision2int;
-	char	*argstr;
+	char	*string;
+	int		i;
+	int		j;
 
-	if ((precision2int_maker(iterator, &precision2int, s, argstr)) == -1)	
-			return (-1);
-	printf("precision2int = %d\n", precision2int);
+	if (width2int <= ft_strlen(argstr))
+		return (ft_strdup(argstr));
+	if (!(string = ft_bblank(width2int, ' ')))
+		return (NULL);
+	if (flag == '-')
+	{
+		i = -1;
+		while (argstr[++i])
+			string[i] = argstr[i];
+	}
+	else if (flag == '\0')
+	{
+		i = -1;
+		j = width2int - ft_strlen(argstr);
+		while (argstr[++i])
+			string[j++] = argstr[i];
+	}
+	return (string);
 }
 
 int				ft_d_handler(va_list arglst, t_lilst *data)
@@ -37,7 +53,14 @@ int				ft_d_handler(va_list arglst, t_lilst *data)
 	if ((width2int = width2int_maker(&iterator, &flag, data->flags, arglst))
 			== -1)
 		return (-1);
-	if (!(argstr = argstr_maker(iterator, data->flags, arglst, &flag)))
+	printf("flag = '%c'\n", flag);
+	if (!(argstr = dargstr_maker(iterator, data->flags, arglst, &flag)))
 			return (-1);
+	printf("argstr = '%s'\n", argstr);
+	printf("flag = '%c'\n", flag);
+	if (!(data->string = string_maker(flag, width2int, argstr)))
+		return (-1);
+	if (argstr)
+		free(argstr);
 	return (1);
 }

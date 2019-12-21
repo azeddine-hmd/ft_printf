@@ -6,11 +6,34 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 01:35:12 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/07 14:15:17 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/21 23:14:54 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		numlen(int n)
+{
+	int i;
+
+	i = 1;
+	while ((n /= 10) != 0)
+		i++;
+	return (i);
+}
+
+char		*ft_bblank(int size, char c)
+{
+	char	*str;
+	int		i;
+
+	if (!(str = (char*)malloc(size)))
+		return(NULL);
+	i = -1;
+	while (++i < size)
+		str[i] = c;
+	return (str);
+}
 
 int			width2int_maker(int *iterator, char *flag, char *s, va_list al)
 {
@@ -35,19 +58,6 @@ int			width2int_maker(int *iterator, char *flag, char *s, va_list al)
 	if (width)
 		free(width);
 	return (width2int);
-}
-
-char		*ft_bblank(int size, char c)
-{
-	char	*str;
-	int		i;
-
-	if (!(str = (char*)malloc(size)))
-		return(NULL);
-	i = -1;
-	while (++i < size)
-		str[i] = c;
-	return (str);
 }
 
 static int	get_argument_string(va_list arglst, char *precision, char **argstr)

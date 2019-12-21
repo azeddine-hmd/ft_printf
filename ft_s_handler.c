@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 05:31:11 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/06 10:28:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/18 05:39:06 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static char		*string_maker(char flag, int width2int, char *argstr)
 	int		i;
 	int		j;
 
-	printf("argstr = '%s'\n", argstr);
-	printf("width2int = '%d'\n", width2int);
 	if (width2int <= ft_strlen(argstr))
 		return (ft_strdup(argstr));
 	if (!(string = ft_bblank(width2int, ' ')))
