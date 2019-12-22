@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 05:23:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/22 00:40:39 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/22 10:49:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ static char	*apply_precision(char *argument, int precision2int, char *flag)
 
 char		*dargstr_maker(int iter, char *s, va_list arglst, char *flag)
 {
-	int		precision2int;
-	int		is_precisionExist;
+	int	precision2int;
+	int	is_precisionExist;
 	char	*argstr;
 	char	*argument;
 

@@ -27,11 +27,12 @@ char		*ft_bblank(int size, char c)
 	char	*str;
 	int		i;
 
-	if (!(str = (char*)malloc(size)))
+	if (!(str = (char*)malloc(size + 1)))
 		return(NULL);
 	i = -1;
 	while (++i < size)
 		str[i] = c;
+	str[i] = '\0';
 	return (str);
 }
 
