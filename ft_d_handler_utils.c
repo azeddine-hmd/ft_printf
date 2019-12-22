@@ -43,6 +43,7 @@ static char	*apply_precision(char *argument, int precision2int, char *flag)
 	j = 0;
 	while (argstr[++i])
 		argstr[i] = argument[j++];
+	free(argument);
 	return (argstr);
 }
 
@@ -58,10 +59,10 @@ char		*dargstr_maker(int iter, char *s, va_list arglst, char *flag)
 			== -1)
 		return (NULL);
 	if (is_precisionExist == 0)
-		return (ft_strdup(va_arg(arglst, char*)));
+		return (ft_itoa(va_arg(arglst, int)));
 	argstr = NULL;
 	argument = ft_itoa(va_arg(arglst, int));
-	if (precision2int == 0 && ft_strncmp(argument, "0", ft_strlen(argument)))
+	if (precision2int == 0 && !ft_strncmp(argument, "0", ft_strlen(argument)))
 		return (ft_strdup(""));
 	if (precision2int > ft_strlen(argument))
 	{
@@ -69,6 +70,6 @@ char		*dargstr_maker(int iter, char *s, va_list arglst, char *flag)
 			return (NULL);
 	}
 	else
-		argstr = ft_strdup(argument);
+		argstr = argument;
 	return (argstr);
 }
