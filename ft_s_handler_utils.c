@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		numlen(int n)
+int			numlen(int n)
 {
 	int i;
 
@@ -28,7 +28,7 @@ char		*ft_bblank(int size, char c)
 	int		i;
 
 	if (!(str = (char*)malloc(size + 1)))
-		return(NULL);
+		return (NULL);
 	i = -1;
 	while (++i < size)
 		str[i] = c;
@@ -73,8 +73,8 @@ static int	get_argument_string(va_list arglst, char *precision, char **argstr)
 	else
 		precision2int = ft_atoi(precision);
 	if (!(str = ft_strdup(va_arg(arglst, char*))))
-			if (!(str = ft_strdup("(null)")))
-				return (-1);
+		if (!(str = ft_strdup("(null)")))
+			return (-1);
 	if (precision2int >= ft_strlen(str) || precision2int < 0)
 		*argstr = str;
 	else
@@ -93,12 +93,12 @@ char		*argstr_maker(int iterator, char *s, va_list arglst)
 
 	precision = NULL;
 	if ((ft_get_precision(s, iterator, &precision) == -1))
-				return (NULL);
+		return (NULL);
 	if (!precision)
 		return (ft_strdup(va_arg(arglst, char*)));
 	if (*precision == '\0')
 	{
-		free(precision); 
+		free(precision);
 		if (!(precision = ft_strdup("0")))
 			return (NULL);
 	}
