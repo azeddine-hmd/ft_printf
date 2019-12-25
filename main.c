@@ -4,9 +4,9 @@ int		main(void)
 {
 	int		re;
 
-	re = ft_printf("'%-12.5d'", -666);
+	re = ft_printf("'%u'", -2222);
 	printf("\nre = %d\n\n", re);
-	re = printf("'%-12.5d'", -666);
+	re = printf("'%u'", -2222);
 	printf("\nre = %d\n", re);
 	return (0);
 }

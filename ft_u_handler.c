@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static char		*string_maker(char flag, int width2int, char *argstr)
+static char	*string_maker(char flag, int width2int, char *argstr)
 {
 	char	*string;
 	int		i;
@@ -20,18 +20,16 @@ static char		*string_maker(char flag, int width2int, char *argstr)
 
 	if (width2int <= ft_strlen(argstr))
 		return (ft_strdup(argstr));
-	if (flag == '\0')
+	if (flag == '\0' || flag == '-')
 		if (!(string = ft_bblank(width2int, ' ')))
 			return (NULL);
 	if (flag == '0')
 		if (!(string = ft_bblank(width2int, '0')))
 			return (NULL);
+	i = -1;
 	if (flag == '-')
-	{
-		i = -1;
 		while (argstr[++i])
 			string[i] = argstr[i];
-	}
 	else
 	{
 		i = -1;
