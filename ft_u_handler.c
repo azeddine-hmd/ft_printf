@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 23:53:34 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/27 23:53:36 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/27 16:30:49 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_u_handler(va_list arglst, t_lilst *data)
 	if ((width2int = width2int_maker(&iterator, &flag, data->flags, arglst))
 			== -1)
 		return (-1);
-	if (!(argstr = dargstr_maker(iterator, data->flags, arglst, &flag)))
+	if (!(argstr = uargstr_maker(iterator, data->flags, arglst, &flag)))
 			return (-1);
 	if (!(data->string = string_maker(flag, width2int, argstr)))
 		return (-1);

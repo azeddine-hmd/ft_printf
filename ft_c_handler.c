@@ -6,59 +6,59 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 23:53:04 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/06 08:59:50 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/31 16:44:12 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_width_maker(va_list arglst, char flag, char *width, char **string)
+static char	*string_maker(char flag, int width2int, char *argstr)
 {
-	int		width2int;
+	char	*string;
+	int		i;
+	int		j;
 
-	if (!width)
-		return (1);
-	if (*width == '*')
-		width2int = va_arg(arglst, int);
-	else
-		width2int = ft_atoi(width);
-	if (width2int < 0)
-	{
-		width2int *= -1;
-		flag = '-';
-	}
-	if (!(*string = ft_bblank(width2int, ' ')))
-		return (-1);
+	if (width2int <= ft_strlen(argstr))
+		return (ft_strdup(argstr));
+	if (flag == '\0' || flag == '-')
+		if (!(string = ft_bblank(width2int, ' ')))
+			return (NULL);
+	if (flag == '0')
+		if (!(string = ft_bblank(width2int, '0')))
+			return (NULL);
+	i = -1;
 	if (flag == '-')
-		**string = va_arg(arglst, int);
-	if (flag == '\0')
-		*(*string + (width2int - 1)) = va_arg(arglst, int);
-	return (1);
+		while (argstr[++i])
+			string[i] = argstr[i];
+	else
+	{
+		i = -1;
+		j = width2int - ft_strlen(argstr);
+		while (argstr[++i])
+			string[j++] = argstr[i];
+	}
+	return (string);
 }
 
-int		ft_c_handler(va_list arglst, t_lilst *data)
+int			ft_c_handler(va_list arglst, t_lilst *data)
 {
-	char	*width;
-	int		start;
+	int		width2int;
+	int		iterator;
 	char	flag;
+	char	*argstr;
 
-	if (!data->flags)
-	{
-		if (!(data->string = ft_calloc(sizeof(char), 2)))
-			return (-1);
-		(data->string)[0] = va_arg(arglst, int);
-		return (1);
-	}
-	start = 0;
+	iterator = 0;
 	flag = '\0';
-	if ((start = ft_get_flag(data->flags, start, &flag)) == -1)
+	if ((iterator = ft_get_flag(data->flags, iterator, &flag)) == -1)
 		return (-1);
-	width = NULL;
-	if (ft_get_width(data->flags, start, &width) == -1)
+	width2int = 0;
+	if ((width2int = width2int_maker(&iterator, &flag, data->flags, arglst))
+			== -1)
 		return (-1);
-	if (ft_width_maker(arglst, flag, width, &(data->string)) == -1)
+	argstr = ft_strdup("a");
+	*argstr = (char)va_arg(arglst, int);
+	if (!(data->string = string_maker(flag, width2int, argstr)))
 		return (-1);
-	if (width)
-		free(width);
+	free(argstr);
 	return (1);
 }

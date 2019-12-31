@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_u_handler_utils.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/27 16:30:33 by ahamdaou          #+#    #+#             */
+/*   Updated: 2019/12/31 17:15:27 by ahamdaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	dpre2int_maker(int iter, int *pre2int, char *s, va_list arglst)
+static int	upre2int_maker(int iter, int *pre2int, char *s, va_list arglst)
 {
 	char	*precision;
 
@@ -58,24 +69,23 @@ static char	*apply_precision(char *argument, int precision2int, char *flag)
 	j = 0;
 	while (argstr[++i])
 		argstr[i] = argument[j++];
-	free(argument);
 	return (argstr);
 }
 
-char		*dargstr_maker(int iter, char *s, va_list arglst, char *flag)
+char		*uargstr_maker(int iter, char *s, va_list arglst, char *flag)
 {
 	int		precision2int;
 	int		is_precisionexist;
 	char	*argstr;
 	char	*argument;
 
-	if ((is_precisionexist = dpre2int_maker(iter, &precision2int, s, arglst))
+	if ((is_precisionexist = upre2int_maker(iter, &precision2int, s, arglst))
 			== -1)
 		return (NULL);
 	if (is_precisionexist == 0)
-		return (ft_itoa(va_arg(arglst, int)));
+		return (ft_itoa(va_arg(arglst, unsigned)));
 	argstr = NULL;
-	argument = ft_itoa(va_arg(arglst, int));
+	argument = ft_itoa(va_arg(arglst, unsigned));
 	if (precision2int == 0 && !ft_strncmp(argument, "0", ft_strlen(argument)))
 	{
 		free(argument);

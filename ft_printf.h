@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 02:43:39 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/20 18:15:40 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/31 17:27:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,20 @@ int				ft_i_handler(va_list arglst, t_lilst *data);
 int				ft_u_handler(va_list arglst, t_lilst *data);
 int				ft_x_handler(va_list arglst, t_lilst *data);
 int				ft_capital_x_handler(va_list arglst, t_lilst *data);
-int				ft_percentage_handler(t_lilst *data);
+int				ft_percentage_handler(va_list arglst, t_lilst *data);
 int				ft_lstprint_string(t_lilst *database);
 void			ft_lstclear(t_lilst *database);
 int				width2int_maker(int *iterator, char *flag, char *s, va_list al);
-char			*argstr_maker(int iterator, char *s, va_list arglst);
 char			*ft_bblank(int size, char c);
+char			*argstr_maker(int iterator, char *s, va_list arglst);
 char			*dargstr_maker(int iter, char *s, va_list arglst, char *flag);
+char			*urgstr_maker(int iterator, char *s, va_list arglst);
+char			*uargstr_maker(int iter, char *s, va_list arglst, char *flag);
+char			*xrgstr_maker(int iterator, char *s, va_list arglst);
+char			*xargstr_maker(int iter, char *s, va_list arglst, char *flag);
+char			*cxrgstr_maker(int iterator, char *s, va_list arglst);
+char			*cxargstr_maker(int iter, char *s, va_list arglst, char *flag);
+char			*prgstr_maker(int iterator, char *s, va_list arglst);
+char			*pargstr_maker(int iter, char *s, va_list arglst, char *flag);
 
 #endif

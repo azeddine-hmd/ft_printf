@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 20:36:37 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/24 20:55:30 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/29 14:41:58 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void			ft_lstclear(t_lilst *database)
 	{
 		tmp = database->next;
 		lstremove(database);
-		database = tmp;	
+		database = tmp;
 	}
 }

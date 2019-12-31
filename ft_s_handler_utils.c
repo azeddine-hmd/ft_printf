@@ -6,21 +6,11 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 01:35:12 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/21 23:14:54 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/31 15:40:56 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int			numlen(int n)
-{
-	int i;
-
-	i = 1;
-	while ((n /= 10) != 0)
-		i++;
-	return (i);
-}
 
 char		*ft_bblank(int size, char c)
 {
@@ -64,6 +54,7 @@ int			width2int_maker(int *iterator, char *flag, char *s, va_list al)
 static int	get_argument_string(va_list arglst, char *precision, char **argstr)
 {
 	int		precision2int;
+	char	*tmp;
 	char	*str;
 
 	if (!precision)
@@ -79,11 +70,22 @@ static int	get_argument_string(va_list arglst, char *precision, char **argstr)
 		*argstr = str;
 	else
 	{
-		free(str);
+		tmp = str;
 		if (!(*argstr = ft_substr(str, 0, precision2int)))
 			return (-1);
+		free(tmp);
 	}
 	return (1);
+}
+
+static char	*pre_null(va_list arglst)
+{
+	char	*argument;
+
+	argument = va_arg(arglst, char*);
+	if (!argument)
+		return (ft_strdup("(null)"));
+	return (ft_strdup(argument));
 }
 
 char		*argstr_maker(int iterator, char *s, va_list arglst)
@@ -95,7 +97,7 @@ char		*argstr_maker(int iterator, char *s, va_list arglst)
 	if ((ft_get_precision(s, iterator, &precision) == -1))
 		return (NULL);
 	if (!precision)
-		return (ft_strdup(va_arg(arglst, char*)));
+		return (pre_null(arglst));
 	if (*precision == '\0')
 	{
 		free(precision);

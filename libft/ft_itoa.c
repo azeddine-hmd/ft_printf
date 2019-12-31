@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-static int	numlen(int n)
+static long	numlen(long n)
 {
-	int i;
+	long i;
 
 	i = 1;
 	while ((n /= 10) != 0)
@@ -33,10 +33,10 @@ static char	*zero_condition(void)
 	return (n);
 }
 
-static char	*negative_condition(unsigned int n)
+static char	*negative_condition(long n)
 {
 	char	*strnum;
-	int		len;
+	long	len;
 
 	len = numlen(n);
 	if (!(strnum = (char*)malloc(len + 2)))
@@ -52,15 +52,15 @@ static char	*negative_condition(unsigned int n)
 	return (strnum);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long n)
 {
 	char	*strnum;
-	int		len;
+	long	len;
 
 	if (n == 0)
 		return (zero_condition());
 	if (n < 0)
-		return (negative_condition((unsigned int)(n * -1)));
+		return (negative_condition((long)(n * -1)));
 	len = numlen(n);
 	if (!(strnum = (char*)malloc(len + 1)))
 		return (NULL);
