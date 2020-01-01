@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 16:30:33 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/31 17:15:27 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/31 17:40:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static char	*negative_condition(char *argument, int precision2int, char *flag)
 	while (argstr[++i])
 		argstr[i] = argumentnew[j++];
 	free(argumentnew);
-	free(argument);
 	return (argstr);
 }
 

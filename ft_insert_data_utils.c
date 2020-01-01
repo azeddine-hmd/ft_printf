@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:07:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/25 18:09:35 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/01/01 21:49:04 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_lilst		*ft_new_data(char *string, char specifier, char *flags)
 	data->specifier = specifier;
 	data->flags = flags;
 	data->next = NULL;
+	data->isnull = 1;
 	return (data);
 }
 

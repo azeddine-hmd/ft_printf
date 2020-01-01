@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 16:30:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/31 17:20:31 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2019/12/31 17:39:52 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static char	*apply_precision(char *argument, int precision2int, char *flag)
 	j = 0;
 	while (argstr[++i])
 		argstr[i] = argument[j++];
-	free(argument);
 	return (argstr);
 }
 

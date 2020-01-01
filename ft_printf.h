@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 02:43:39 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/31 17:27:35 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/01/01 21:46:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct	s_lilst
 	char			*string;
 	char			specifier;
 	char			*flags;
+	int				isnull;
 	struct s_lilst	*next;
 }				t_lilst;
 
@@ -44,7 +45,7 @@ int				ft_u_handler(va_list arglst, t_lilst *data);
 int				ft_x_handler(va_list arglst, t_lilst *data);
 int				ft_capital_x_handler(va_list arglst, t_lilst *data);
 int				ft_percentage_handler(va_list arglst, t_lilst *data);
-int				ft_lstprint_string(t_lilst *database);
+int				ft_lstprint(t_lilst *database);
 void			ft_lstclear(t_lilst *database);
 int				width2int_maker(int *iterator, char *flag, char *s, va_list al);
 char			*ft_bblank(int size, char c);

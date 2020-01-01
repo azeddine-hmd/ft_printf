@@ -11,7 +11,7 @@ MCF =	ft_printf.c \
 		ft_insert_data.c \
 		ft_insert_data_utils.c \
 		ft_manipulate_data.c \
-		ft_lstprint_string.c \
+		ft_lstprint.c \
 		ft_flags_handler.c \
 		ft_c_handler.c \
 		ft_s_handler.c \
