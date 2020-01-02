@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 18:44:06 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/30 18:56:24 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/01/02 01:38:52 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ char		*ft_dec2hex(size_t decimal)
 
 	final = ft_strdup("");
 	if (decimal < 16)
+	{
+		free(final);
 		return (hexer(decimal));
+	}
 	r = decimal % 16;
 	tmp = final;
 	tmp2 = hexer(r);

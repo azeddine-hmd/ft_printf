@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 08:21:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/27 23:50:47 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/01/02 02:14:53 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,12 @@ static int		addlst_formatdata(t_lilst **database, char *s, int i)
 	return (1);
 }
 
+static void		norminette_initializer(int *i, int *start)
+{
+	*i = -1;
+	*start = 0;
+}
+
 /*
 ** [Description]:
 ** - This function insert data needed for [part II] in the "database".
@@ -84,8 +90,7 @@ int				ft_insert_data(t_lilst **database, char *s)
 	int		string_return;
 	int		i;
 
-	i = -1;
-	start = 0;
+	norminette_initializer(&i, &start);
 	while (s[++i])
 	{
 		if (s[i] == '%')

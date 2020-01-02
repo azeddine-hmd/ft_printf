@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 23:53:40 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/30 17:24:07 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/01/02 02:03:15 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char	*string_maker(char flag, int width2int, char *argstr)
 	return (string);
 }
 
-int		ft_x_handler(va_list arglst, t_lilst *data)
+int			ft_x_handler(va_list arglst, t_lilst *data)
 {
 	int		iterator;
 	char	flag;

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 16:30:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/31 17:40:50 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/01/02 01:36:08 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,18 @@ static char	*prefixer(char *s)
 {
 	char	*final;
 
-	if(!(final = ft_strjoin("0x", s)))
+	if (!(final = ft_strjoin("0x", s)))
 		return (NULL);
 	free(s);
+	return (final);
+}
+
+static char	*prefixer_nofree(char *s)
+{
+	char	*final;
+
+	if (!(final = ft_strjoin("0x", s)))
+		return (NULL);
 	return (final);
 }
 
@@ -71,17 +80,17 @@ char		*pargstr_maker(int iter, char *s, va_list arglst, char *flag)
 	if (is_precisionexist == 0)
 		return (prefixer(ft_dec2hex(va_arg(arglst, size_t))));
 	argstr = NULL;
-	argument = prefixer(ft_dec2hex(va_arg(arglst, size_t)));
+	argument = ft_dec2hex(va_arg(arglst, size_t));
 	if (precision2int == 0 && !ft_strncmp(argument, "0", ft_strlen(argument)))
 	{
 		free(argument);
-		return (ft_strdup(""));
+		return (ft_strdup("0x"));
 	}
 	if (precision2int > ft_strlen(argument))
 		if (!(argstr = apply_precision(argument, precision2int, flag)))
 			return (NULL);
 	if (precision2int <= ft_strlen(argument))
-		argstr = ft_strdup(argument);
+		argstr = prefixer_nofree(argument);
 	free(argument);
 	return (argstr);
 }

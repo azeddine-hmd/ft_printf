@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 09:30:23 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/31 16:52:08 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/01/02 02:03:36 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char	*string_maker(char flag, int width2int, char *argstr)
 	return (string);
 }
 
-int		ft_percentage_handler(va_list arglst, t_lilst *data)
+int			ft_percentage_handler(va_list arglst, t_lilst *data)
 {
 	int		width2int;
 	int		iterator;

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 23:53:34 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/27 16:30:49 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/01/02 02:02:32 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char	*string_maker(char flag, int width2int, char *argstr)
 	return (string);
 }
 
-int		ft_u_handler(va_list arglst, t_lilst *data)
+int			ft_u_handler(va_list arglst, t_lilst *data)
 {
 	int		iterator;
 	char	flag;
@@ -56,7 +56,7 @@ int		ft_u_handler(va_list arglst, t_lilst *data)
 			== -1)
 		return (-1);
 	if (!(argstr = uargstr_maker(iterator, data->flags, arglst, &flag)))
-			return (-1);
+		return (-1);
 	if (!(data->string = string_maker(flag, width2int, argstr)))
 		return (-1);
 	if (argstr)

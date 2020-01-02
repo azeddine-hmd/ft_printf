@@ -2,5 +2,5 @@
 
 # compiling and executing
 make re && clear; gcc -Wall -Wextra -Werror -g *.c */*.c
-clear; valgrind --xtree-memory=full ./a.out
+clear; valgrind --leak-check=yes ./a.out
 make -s fclean

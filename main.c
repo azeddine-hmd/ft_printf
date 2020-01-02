@@ -4,9 +4,9 @@ int		main(void)
 {
 	int		re;
 
-	re = ft_printf("result |'%-4c'", '\0');
+	re = ft_printf("result |'%*.*d'", 0, 0, 0);
 	printf("\nreturn = %d\n\n", re);
-	re = printf("result |'%-4c'", '\0');
+	re = printf("result |'%*.*d'", 0, 0, 0);
 	printf("\nreturn = %d\n", re);
 	return (0);
 }
